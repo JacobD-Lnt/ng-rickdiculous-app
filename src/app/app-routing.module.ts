@@ -6,6 +6,7 @@ import { EpisodesComponent } from './components/episodes/episodes.component';
 import { EpisodeDescriptionComponent } from './components/episode-description/episode-description.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { CharacterDescriptionComponent } from './components/character-description/character-description.component';
+import { LocationPage } from './location-page';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,8 @@ const routes = [
     path: 'charDescription/:charNum',
     component: CharacterDescriptionComponent,
   },
+
+  {path: 'locations/:pgNum', component: LocationPage},
 ];
 
 @NgModule({

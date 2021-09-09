@@ -6,6 +6,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { EpisodeData } from './episode-data';
 import { CharacterData } from './character-data';
 import { CharactersPage } from './characters-page';
+import { LocationPage } from './location-page';
 
 @Injectable({
   providedIn: 'root',
@@ -34,5 +35,11 @@ export class HttpGetService {
   getAllCharacterData(page: number) {
     let epUrl = this.mainUrl + '/character?page=' + page;
     return this.http.get<CharactersPage>(epUrl);
+  }
+
+  getAllLocationData(page:number){
+
+    let epUrl=this.mainUrl+'location?page='+page;
+    return this.http.get<LocationPage>(epUrl);
   }
 }
