@@ -8,3 +8,19 @@
 </nav>
 
 <div>Character Id: {{ charDescription.id }}</div>
+<div>Character Name: {{charDescription.name}}</div>
+<div>Status: {{charDescription.status}}</div>
+<div>Species: {{charDescription.species}}</div>
+<div>Type: {{charDescription.type}}</div>
+<div>Gender: {{charDescription.gender}}</div>
+<div>Origin: </div>
+<div>Location: </div>
+<div>Image: </div>
+<div *ngIf="epIds.length>0"  >
+<app-episode-link
+ *ngFor="let id of epIds"
+  [epData]="id"
+></app-episode-link>
+</div>
+
+

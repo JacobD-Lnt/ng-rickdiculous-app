@@ -35,4 +35,13 @@ export class HttpGetService {
     let epUrl = this.mainUrl + '/character?page=' + page;
     return this.http.get<CharactersPage>(epUrl);
   }
+
+  // getEpsFromIds(ids:number[]){
+  //   let epArray: EpisodeData[]=[];
+  //   epArray.forEach(element => {
+
+  //     let epUrl=this.mainUrl+'/episode/'+element;
+  //     epArray.push(this.http.get<EpisodeData>(epUrl));
+  //   });
+  // }
 }

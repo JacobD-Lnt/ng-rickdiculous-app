@@ -3,6 +3,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HttpGetService } from 'src/app/http-get.service';
 import { CharacterData } from 'src/app/character-data';
+import { EpisodeLinkComponent } from '../episode-link/episode-link.component';
+import { EpisodeData } from 'src/app/episode-data';
 
 @Component({
   selector: 'app-character-description',
@@ -11,6 +13,8 @@ import { CharacterData } from 'src/app/character-data';
 })
 export class CharacterDescriptionComponent implements OnInit {
   charNum: number = -1;
+  epIds: number[]=[];
+  epData: EpisodeData[]=[];
   charDescription: CharacterData = new CharacterData();
 
   constructor(
@@ -30,7 +34,9 @@ export class CharacterDescriptionComponent implements OnInit {
         .subscribe(
           (data) => (
             (this.charDescription = data),
-            console.log('first id: ', this.charDescription.id)
+            this.epIds=this.charDescription.episode.map(x=>parseInt(x.split("/")[5])),
+            console.log("eps are: ", this.epIds)
+
           )
         );
     });
