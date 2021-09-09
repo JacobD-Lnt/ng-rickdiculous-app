@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { EpisodesPage } from './episodes-page';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { EpisodeData } from './episode-data';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +18,8 @@ export class HttpGetService {
     return this.http.get<EpisodesPage>(epUrl);
   }
 
-  // getOneEpisodeData(id: number) {
-  //   let epUrl = this.mainUrl + '/episode/' + id;
-  //   return this.http.get<EpisodeData>(epUrl);
-  // }
+  getOneEpisodeData(id: number) {
+    let epUrl = this.mainUrl + '/episode/' + id;
+    return this.http.get<EpisodeData>(epUrl);
+  }
 }

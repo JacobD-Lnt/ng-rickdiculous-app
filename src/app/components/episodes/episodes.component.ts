@@ -38,10 +38,5 @@ export class EpisodesComponent implements OnInit {
         );
     });
 
-    // this.route.paramMap.subscribe((p: ParamMap) => {
-    //   this.a = parseInt(p.get('a')!);
-    //   this.b = parseInt(p.get('b')!);
-    //   this.sum = this.a + this.b + this.x + this.y;
-    // });
   }
 }
