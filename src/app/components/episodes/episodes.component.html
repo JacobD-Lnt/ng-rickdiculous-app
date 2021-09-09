@@ -10,7 +10,7 @@
 
 <app-episode-link
   *ngFor="let result of episodes.results"
-  [episodeData]="result"
+  [epUrl]="result.url"
 ></app-episode-link>
 
 <!-- <div *ngFor="let results of episodes.results; index as i">

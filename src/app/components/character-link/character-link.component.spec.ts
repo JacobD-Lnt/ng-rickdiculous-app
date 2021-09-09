@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CharacterLinkComponent } from './character-link.component';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';

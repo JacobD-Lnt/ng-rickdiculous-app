@@ -7,4 +7,25 @@
   <a [routerLink]="['/characters', 1]">Characters</a>
 </nav>
 
-<div>Character Id: {{ charDescription.id }}</div>
+<!-- <div>Character Id: {{ charDescription.id }}</div> -->
+<br />
+<div>{{ charDescription.name }}</div>
+
+<div>
+  <img src="{{ imageUrl }}" alt="{{ charDescription.name }}" />
+</div>
+
+<div>Status: {{ charDescription.status }}</div>
+<div>Species: {{ charDescription.species }}</div>
+<div>Type: {{ charDescription.type }}</div>
+<div>Gender: {{ charDescription.gender }}</div>
+<div>Origin:</div>
+<div>Location:</div>
+
+<br />
+<div>Episodes:</div>
+
+<app-episode-link
+  *ngFor="let epUrl of charDescription.episode"
+  [epUrl]="epUrl"
+></app-episode-link>

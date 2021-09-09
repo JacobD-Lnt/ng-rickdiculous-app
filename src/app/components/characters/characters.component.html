@@ -7,6 +7,8 @@
   <a [routerLink]="['/characters', 1]">Characters</a>
 </nav>
 
+<br />
+
 <app-character-link
   *ngFor="let result of characters.results"
   [charUrl]="result.url"

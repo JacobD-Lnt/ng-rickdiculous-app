@@ -12,6 +12,7 @@ import { CharacterData } from 'src/app/character-data';
 export class CharacterDescriptionComponent implements OnInit {
   charNum: number = -1;
   charDescription: CharacterData = new CharacterData();
+  imageUrl: string = '';
 
   constructor(
     private httpGetService: HttpGetService,
@@ -30,6 +31,7 @@ export class CharacterDescriptionComponent implements OnInit {
         .subscribe(
           (data) => (
             (this.charDescription = data),
+            (this.imageUrl = this.charDescription.image),
             console.log('first id: ', this.charDescription.id)
           )
         );
