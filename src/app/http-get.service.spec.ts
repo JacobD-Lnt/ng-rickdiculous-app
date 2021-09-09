@@ -27,7 +27,7 @@ describe('HttpGetService', () => {
     service.getAllEpisodeData(1).subscribe(); // start request
 
     httpTestController.expectOne(
-      'https://rickandmortyapi.com/api/episode?page/1'
+      'https://rickandmortyapi.com/api/episode?page=1'
     );
     httpTestController.verify();
   });
