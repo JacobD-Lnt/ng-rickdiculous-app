@@ -8,9 +8,12 @@ import { HomeComponent } from './components/home/home.component';
 import { EpisodesComponent } from './components/episodes/episodes.component';
 import { EpisodeLinkComponent } from './components/episode-link/episode-link.component';
 import { EpisodeDescriptionComponent } from './components/episode-description/episode-description.component';
+import { CharacterLinkComponent } from './components/character-link/character-link.component';
+import { CharactersComponent } from './components/characters/characters.component';
+import { CharacterDescriptionComponent } from './components/character-description/character-description.component';
 
 @NgModule({
-  declarations: [AppComponent, EpisodesComponent, HomeComponent, EpisodeLinkComponent, EpisodeDescriptionComponent],
+  declarations: [AppComponent, EpisodesComponent, HomeComponent, EpisodeLinkComponent, EpisodeDescriptionComponent, CharacterLinkComponent, CharactersComponent, CharacterDescriptionComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

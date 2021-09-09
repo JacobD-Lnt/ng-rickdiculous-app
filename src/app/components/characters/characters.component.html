@@ -1,0 +1,24 @@
+<!-- <p>characters works!</p> -->
+<nav>
+  <a routerLink="">Home</a>
+
+  <a [routerLink]="['/episodes', 1]">Episodes</a>
+
+  <a [routerLink]="['/characters', 1]">Characters</a>
+</nav>
+
+<app-character-link
+  *ngFor="let result of characters.results"
+  [charUrl]="result.url"
+></app-character-link>
+
+<br />
+<div *ngIf="characters.info != null">
+  Page: {{ pageNum }} out of {{ characters.info.pages }}
+</div>
+<br />
+<a *ngIf="pageNum > 1" [routerLink]="['/characters', pageNum - 1]">Prev Page</a>
+<br />
+<a *ngIf="pageNum < 34" [routerLink]="['/characters', pageNum + 1]">
+  Next Page
+</a>

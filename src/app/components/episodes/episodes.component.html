@@ -1,6 +1,10 @@
+<nav>
+  <a routerLink="">Home</a>
 
+  <a [routerLink]="['/episodes', 1]">Episodes</a>
 
-<a routerLink="">Home</a>
+  <a [routerLink]="['/characters', 1]">Characters</a>
+</nav>
 
 <br />
 
@@ -14,7 +18,9 @@
 </div> -->
 
 <br />
-Page: {{ pageNum }}
+<div *ngIf="episodes.info != null">
+  Page: {{ pageNum }} out of {{ episodes.info.pages }}
+</div>
 <br />
 <a *ngIf="pageNum > 1" [routerLink]="['/episodes', pageNum - 1]">Prev Page</a>
 <br />

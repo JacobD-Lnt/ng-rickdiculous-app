@@ -4,6 +4,8 @@ import { EpisodesPage } from './episodes-page';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { EpisodeData } from './episode-data';
+import { CharacterData } from './character-data';
+import { CharactersPage } from './characters-page';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +23,16 @@ export class HttpGetService {
   getOneEpisodeData(id: number) {
     let epUrl = this.mainUrl + '/episode/' + id;
     return this.http.get<EpisodeData>(epUrl);
+  }
+
+  getOneCharacterData(id: string) {
+    let epUrl = this.mainUrl + '/character/' + id;
+    console.log('character link: ', epUrl);
+    return this.http.get<CharacterData>(epUrl);
+  }
+
+  getAllCharacterData(page: number) {
+    let epUrl = this.mainUrl + '/character?page=' + page;
+    return this.http.get<CharactersPage>(epUrl);
   }
 }
