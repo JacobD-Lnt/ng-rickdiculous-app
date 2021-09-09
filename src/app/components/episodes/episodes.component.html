@@ -1,0 +1,21 @@
+<p>episodes works!</p>
+
+<a routerLink="">Home</a>
+
+<br />
+
+<app-episode-link
+  *ngFor="let result of episodes.results"
+  [episodeData]="result"
+></app-episode-link>
+
+<!-- <div *ngFor="let results of episodes.results; index as i">
+  <br />
+</div> -->
+
+<br />
+Page: {{ pageNum }}
+<br />
+<a *ngIf="pageNum > 1" [routerLink]="['/episodes', pageNum - 1]">Prev Page</a>
+<br />
+<a *ngIf="pageNum < 3" [routerLink]="['/episodes', pageNum + 1]">Next Page</a>
