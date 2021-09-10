@@ -96,23 +96,9 @@ export class CharacterSearchbarComponent implements OnInit {
       searchGender: [''],
     });
 
-    // this.httpGetService
-    //   .getSearchResponseForCharacter(this.searchData)
-    //   .subscribe(
-    //     (data) => (
-    //       (this.charPage = data),
-    //       console.log('pages: ', this.charPage.info.pages)
-    //     )
-    //   );
+
   }
 
-  // formCheck(): boolean {
-  //   if (this.charSearchForm.controls.search.valid === true) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
 
   handleSubmit() {
     console.log('Submit');
@@ -133,8 +119,6 @@ export class CharacterSearchbarComponent implements OnInit {
 
     this.searchData = searchTerms;
 
-    //console.log('searchData: ', this.searchData);
 
-    // this.httpGetservice.getSearchResponseForCharacter(searchTerms)
   }
 }

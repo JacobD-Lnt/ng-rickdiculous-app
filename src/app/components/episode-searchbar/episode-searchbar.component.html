@@ -1,1 +1,87 @@
-<p>episode-searchbar works!</p>
+<nav>
+  <a routerLink="">Home</a>
+
+  <a [routerLink]="['/episodes', 1]">Episodes</a>
+
+  <a [routerLink]="['/characters', 1]">Characters</a>
+
+  <a [routerLink]="['/locations', 1]">Locations</a>
+</nav>
+
+<br />
+
+<form (ngSubmit)="handleSubmit()" [formGroup]="epSearchForm">
+  <label>Name:</label>
+  <input
+    id="searchterm1"
+    class="form-control"
+    type="search"
+    formControlName="searchName"
+    required
+  />
+  <br />
+  <label>Episode:</label>
+  <input
+    id="searchterm2"
+    class="form-control"
+    type="search"
+    formControlName="searchEpisode"
+  />
+<br />
+  <input id="submit" type="submit" value="Submit" />
+</form>
+
+<br />
+
+<div *ngIf="epPage.info != null">
+  <a
+    [routerLink]="[
+      '/charSearch',
+      1,
+      searchData['name'],
+      searchData['episode']
+    ]"
+    >Update Results</a
+  >
+</div>
+
+<br />
+
+<div *ngIf="epPage.info != null">
+  Results:
+
+  <br />
+
+  <app-character-link
+    *ngFor="let result of epPage.results"
+    [epUrl]="result.url"
+  ></app-character-link>
+
+  <br />
+
+  Page: {{ pageNum }} out of {{ epPage.info.pages }}
+  <br />
+  <a
+    *ngIf="pageNum > 1"
+    [routerLink]="[
+      '/charSearch',
+      pageNum - 1,
+      searchData['name'],
+      searchData['episode']
+    ]"
+    >Prev Page</a
+  >
+  <br />
+  <a
+    *ngIf="pageNum < epPage.info.pages"
+    [routerLink]="[
+      '/charSearch',
+      pageNum + 1,
+      searchData['name'],
+      searchData['episode']
+    ]"
+  >
+    Next Page
+  </a>
+</div>
+

@@ -101,8 +101,28 @@ export class HttpGetService {
     return this.http.get<CharactersPage>(searchUrl);
   }
 
-  getSearchResponseForEpisode(keywords: object): Observable<EpisodesPage> {
-    return;
+  getSearchResponseForEpisode(page: number, keywords: object): Observable<EpisodesPage> {
+    let searchUrl = this.mainUrl + '/episode/?';
+    let searchIndex = 0;
+
+    if (keywords['name'] != '') {
+      searchUrl += 'name=' + keywords['name'];
+      searchIndex++;
+    }
+
+    if (keywords['episode'] != '') {
+      if (searchIndex > 0) {
+        searchUrl += '&';
+      }
+
+      searchUrl += 'episode=' + keywords['episode'];
+      searchIndex++;
+    }
+
+    searchUrl += '&page=' + page;
+
+    return this.http.get<EpisodesPage>(searchUrl);
+
   }
 
   getSearchResponseForLocation(keywords: object): Observable<LocationPage> {
