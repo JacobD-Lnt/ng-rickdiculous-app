@@ -1,1 +1,99 @@
-<p>location-searchbar works!</p>
+<nav>
+  <a routerLink="">Home</a>
+
+  <a [routerLink]="['/episodes', 1]">Episodes</a>
+
+  <a [routerLink]="['/characters', 1]">Characters</a>
+
+  <a [routerLink]="['/locations', 1]">Locations</a>
+</nav>
+
+<br />
+
+<form (ngSubmit)="handleSubmit()" [formGroup]="locSearchForm">
+  <label>Name:</label>
+  <input
+    id="searchterm1"
+    class="form-control"
+    type="search"
+    formControlName="searchName"
+    required
+  />
+  <br />
+  <label>Type:</label>
+  <input
+    id="searchterm2"
+    class="form-control"
+    type="search"
+    formControlName="searchType"
+  />
+  <br />
+  <label>Dimension:</label>
+  <input
+    id="searchterm3"
+    class="form-control"
+    type="search"
+    formControlName="searchDimension"
+  />
+<br />
+  <input id="submit" type="submit" value="Submit" />
+</form>
+
+<br />
+
+<div *ngIf="locPage.info != null">
+  <a
+    [routerLink]="[
+      '/locSearch',
+      1,
+      searchData['name'],
+      searchData['type'],
+      searchData['dimension']
+    ]"
+    >Update Results</a
+  >
+</div>
+
+<br />
+
+<div *ngIf="locPage.info != null">
+  Results:
+
+  <br />
+
+  <app-location-link
+    *ngFor="let result of locPage.results"
+    [locUrl]="result.url"
+  ></app-location-link>
+
+  <br />
+
+  Page: {{ pageNum }} out of {{ locPage.info.pages }}
+  <br />
+  <a
+    *ngIf="pageNum > 1"
+    [routerLink]="[
+      '/locSearch',
+      pageNum - 1,
+      searchData['name'],
+      searchData['type'],
+      searchData['dimension']
+    ]"
+    >Prev Page</a
+  >
+  <br />
+  <a
+    *ngIf="pageNum < locPage.info.pages"
+    [routerLink]="[
+      '/locSearch',
+      pageNum + 1,
+      searchData['name'],
+      searchData['type'],
+      searchData['dimension']
+    ]"
+  >
+    Next Page
+  </a>
+</div>
+
+

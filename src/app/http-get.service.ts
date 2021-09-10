@@ -125,7 +125,35 @@ export class HttpGetService {
 
   }
 
-  getSearchResponseForLocation(keywords: object): Observable<LocationPage> {
-    return;
+  getSearchResponseForLocation(page: number, keywords: object): Observable<LocationPage> {
+    let searchUrl = this.mainUrl + '/location/?';
+    let searchIndex = 0;
+
+    if (keywords['name'] != '') {
+      searchUrl += 'name=' + keywords['name'];
+      searchIndex++;
+    }
+
+    if (keywords['type'] != '') {
+      if (searchIndex > 0) {
+        searchUrl += '&';
+      }
+
+      searchUrl += 'type=' + keywords['type'];
+      searchIndex++;
+    }
+
+    if (keywords['dimension'] != '') {
+      if (searchIndex > 0) {
+        searchUrl += '&';
+      }
+
+      searchUrl += 'dimension=' + keywords['dimension'];
+      searchIndex++;
+    }
+
+    searchUrl += '&page=' + page;
+
+    return this.http.get<LocationPage>(searchUrl);
   }
 }

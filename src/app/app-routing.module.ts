@@ -10,6 +10,7 @@ import { LocationsComponent } from './components/locations/locations.component';
 import { LocationDescriptionComponent } from './components/location-description/location-description.component';
 import { CharacterSearchbarComponent } from './components/character-searchbar/character-searchbar.component';
 import { EpisodeSearchbarComponent } from './components/episode-searchbar/episode-searchbar.component';
+import { LocationSearchbarComponent } from './components/location-searchbar/location-searchbar.component';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -35,7 +36,8 @@ const routes = [
     component: CharacterSearchbarComponent,
   },
   {path: 'epSearch/:page/:name/:episode', component: EpisodeSearchbarComponent},
-  
+  {path: 'locSearch/:page/:name/:type/:dimension', component: LocationSearchbarComponent},
+
 ];
 
 @NgModule({
