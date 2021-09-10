@@ -14,33 +14,39 @@
 
 <br />
 
+<br />
+
 Favorite Episodes:
 
 <br />
 <div>
+  <br />
   <app-episode-link
     *ngFor="let epUrl of favEps"
     [epUrl]="epUrl"
   ></app-episode-link>
-  <br />
 </div>
+<br />
+
 <br />
 Favorite Characters:
 <br />
 <div>
+  <br />
   <app-character-link
     *ngFor="let charUrl of favChars"
     [charUrl]="charUrl"
   ></app-character-link>
-  <br />
 </div>
+<br />
+
 <br />
 Favorite Locations:
 <br />
 <div>
+  <br />
   <app-location-link
     *ngFor="let locUrl of favLocs"
     [locUrl]="locUrl"
   ></app-location-link>
-  <br />
 </div>
