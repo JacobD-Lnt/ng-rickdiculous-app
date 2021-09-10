@@ -7,6 +7,7 @@ import { EpisodeData } from './episode-data';
 import { CharacterData } from './character-data';
 import { CharactersPage } from './characters-page';
 import { LocationPage } from './location-page';
+import { LocationData } from './location-data';
 
 @Injectable({
   providedIn: 'root',
@@ -27,19 +28,52 @@ export class HttpGetService {
   }
 
   getOneCharacterData(id: string) {
-    let epUrl = this.mainUrl + '/character/' + id;
-    console.log('character link: ', epUrl);
-    return this.http.get<CharacterData>(epUrl);
+    let charUrl = this.mainUrl + '/character/' + id;
+    console.log('character link: ', charUrl);
+    return this.http.get<CharacterData>(charUrl);
   }
 
   getAllCharacterData(page: number) {
-    let epUrl = this.mainUrl + '/character?page=' + page;
-    return this.http.get<CharactersPage>(epUrl);
+    let charUrl = this.mainUrl + '/character?page=' + page;
+    return this.http.get<CharactersPage>(charUrl);
   }
 
-  getAllLocationData(page:number){
+  getAllLocationData(page: number) {
+    let locUrl = this.mainUrl + '/location?page=' + page;
+    return this.http.get<LocationPage>(locUrl);
+  }
 
-    let epUrl=this.mainUrl+'location?page='+page;
-    return this.http.get<LocationPage>(epUrl);
+  getOneLocationData(id: number) {
+    let locUrl = this.mainUrl + '/location/' + id;
+    return this.http.get<LocationData>(locUrl);
+  }
+
+  getSearchResponseForCharacter(keywords: object): Observable<CharactersPage> {
+    let searchUrl = this.mainUrl + '/character/?';
+    let searchIndex = 0;
+
+    if (keywords['name'] != null) {
+      searchUrl += 'name=' + keywords['name'];
+      searchIndex++;
+    }
+
+    if (keywords['status'] != null) {
+      if (searchIndex > 0) {
+        searchUrl += '&';
+      }
+
+      searchUrl += 'status=' + keywords['status'];
+      searchIndex++;
+    }
+
+    return this.http.get<CharactersPage>(searchUrl);
+  }
+
+  getSearchResponseForEpisode(keywords: object): Observable<EpisodesPage> {
+    return;
+  }
+
+  getSearchResponseForLocation(keywords: object): Observable<LocationPage> {
+    return;
   }
 }

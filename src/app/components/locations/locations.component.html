@@ -1,16 +1,37 @@
-<p>locations works!</p>
+<!-- <p>locations works!</p> -->
 <nav>
   <a routerLink="">Home</a>
 
   <a [routerLink]="['/episodes', 1]">Episodes</a>
 
   <a [routerLink]="['/characters', 1]">Characters</a>
+
   <a [routerLink]="['/locations', 1]">Locations</a>
 </nav>
 
 <br />
 
+<app-location-link
+  *ngFor="let result of locations.results"
+  [locUrl]="result.url"
+></app-location-link>
+
 <!-- <app-episode-link
   *ngFor="let result of episodes.results"
   [epUrl]="result.url"
 ></app-episode-link>  need to add locations link component-->
+
+<br />
+<div *ngIf="locations.info != null">
+  Page: {{ pageNum }} out of {{ locations.info.pages }}
+  <br />
+  <a *ngIf="pageNum > 1" [routerLink]="['/locations', pageNum - 1]"
+    >Prev Page</a
+  >
+  <br />
+  <a
+    *ngIf="pageNum < locations.info.pages"
+    [routerLink]="['/locations', pageNum + 1]"
+    >Next Page</a
+  >
+</div>

@@ -1,0 +1,16 @@
+<form (ngSubmit)="handleSubmit()" [formGroup]="searchForm">
+  <label>Search:</label><br />
+  <input
+    id="search1"
+    class="form-control"
+    type="search"
+    formControlName="search"
+    required
+  />
+  <br /><input
+    [disabled]="!formCheck()"
+    id="submit"
+    type="submit"
+    value="Go!"
+  />
+</form>

@@ -1,12 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LocationsComponent } from './locations.component';
+import { SearchbarComponent } from './searchbar.component';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { EpisodesPage } from 'src/app/episodes-page';
 import { EpisodeLinkComponent } from '../episode-link/episode-link.component';
 import { EpisodeData } from 'src/app/episode-data';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
   HttpClientTestingModule,
@@ -15,16 +16,21 @@ import {
 
 import { HttpGetService } from 'src/app/http-get.service';
 
-describe('LocationsComponent', () => {
-  let component: LocationsComponent;
-  let fixture: ComponentFixture<LocationsComponent>;
+describe('SearchbarComponent', () => {
+  let component: SearchbarComponent;
+  let fixture: ComponentFixture<SearchbarComponent>;
   let service = HttpGetService;
   let httpTestController: HttpTestingController;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LocationsComponent],
-      imports: [RouterTestingModule, HttpClientTestingModule],
+      declarations: [SearchbarComponent],
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        FormsModule,
+        ReactiveFormsModule,
+      ],
       providers: [HttpGetService],
     }).compileComponents();
     httpTestController = TestBed.inject(HttpTestingController);
@@ -32,7 +38,7 @@ describe('LocationsComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LocationsComponent);
+    fixture = TestBed.createComponent(SearchbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

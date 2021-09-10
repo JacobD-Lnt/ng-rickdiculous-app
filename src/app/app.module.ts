@@ -12,10 +12,33 @@ import { CharacterLinkComponent } from './components/character-link/character-li
 import { CharactersComponent } from './components/characters/characters.component';
 import { CharacterDescriptionComponent } from './components/character-description/character-description.component';
 import { LocationsComponent } from './components/locations/locations.component';
+import { LocationLinkComponent } from './components/location-link/location-link.component';
+import { LocationDescriptionComponent } from './components/location-description/location-description.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, EpisodesComponent, HomeComponent, EpisodeLinkComponent, EpisodeDescriptionComponent, CharacterLinkComponent, CharactersComponent, CharacterDescriptionComponent, LocationsComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    EpisodesComponent,
+    HomeComponent,
+    EpisodeLinkComponent,
+    EpisodeDescriptionComponent,
+    CharacterLinkComponent,
+    CharactersComponent,
+    CharacterDescriptionComponent,
+    LocationsComponent,
+    LocationLinkComponent,
+    LocationDescriptionComponent,
+    SearchbarComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

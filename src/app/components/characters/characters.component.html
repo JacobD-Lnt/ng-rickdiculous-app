@@ -5,6 +5,8 @@
   <a [routerLink]="['/episodes', 1]">Episodes</a>
 
   <a [routerLink]="['/characters', 1]">Characters</a>
+
+  <a [routerLink]="['/locations', 1]">Locations</a>
 </nav>
 
 <br />
@@ -17,10 +19,15 @@
 <br />
 <div *ngIf="characters.info != null">
   Page: {{ pageNum }} out of {{ characters.info.pages }}
+  <br />
+  <a *ngIf="pageNum > 1" [routerLink]="['/characters', pageNum - 1]"
+    >Prev Page</a
+  >
+  <br />
+  <a
+    *ngIf="pageNum < characters.info.pages"
+    [routerLink]="['/characters', pageNum + 1]"
+  >
+    Next Page
+  </a>
 </div>
-<br />
-<a *ngIf="pageNum > 1" [routerLink]="['/characters', pageNum - 1]">Prev Page</a>
-<br />
-<a *ngIf="pageNum < 34" [routerLink]="['/characters', pageNum + 1]">
-  Next Page
-</a>

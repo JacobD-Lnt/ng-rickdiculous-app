@@ -5,6 +5,8 @@
   <a [routerLink]="['/episodes', 1]">Episodes</a>
 
   <a [routerLink]="['/characters', 1]">Characters</a>
+
+  <a [routerLink]="['/locations', 1]">Locations</a>
 </nav>
 
 <!-- <div>Character Id: {{ charDescription.id }}</div> -->
@@ -19,8 +21,24 @@
 <div>Species: {{ charDescription.species }}</div>
 <div>Type: {{ charDescription.type }}</div>
 <div>Gender: {{ charDescription.gender }}</div>
-<div>Origin:</div>
-<div>Location:</div>
+
+<div *ngIf="charDescription.origin != null">
+  <div>
+    Origin:
+    <app-location-link
+      [locUrl]="charDescription.origin['url']"
+    ></app-location-link>
+  </div>
+</div>
+
+<div *ngIf="charDescription.location != null">
+  <div>
+    Location:
+    <app-location-link
+      [locUrl]="charDescription.location['url']"
+    ></app-location-link>
+  </div>
+</div>
 
 <br />
 <div>Episodes:</div>

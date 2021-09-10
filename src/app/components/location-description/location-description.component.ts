@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HttpGetService } from 'src/app/http-get.service';
-import { EpisodeData } from 'src/app/episode-data';
+import { LocationData } from 'src/app/location-data';
 import { CharacterLinkComponent } from '../character-link/character-link.component';
 
 @Component({
-  selector: 'app-episode-description',
-  templateUrl: './episode-description.component.html',
-  styleUrls: ['./episode-description.component.css'],
+  selector: 'app-location-description',
+  templateUrl: './location-description.component.html',
+  styleUrls: ['./location-description.component.css'],
 })
-export class EpisodeDescriptionComponent implements OnInit {
-  episodeNum: number = -1;
-  epDescription: EpisodeData = new EpisodeData();
+export class LocationDescriptionComponent implements OnInit {
+  locNum: number = -1;
+  locDescription: LocationData = new LocationData();
 
   constructor(
     private httpGetService: HttpGetService,
@@ -23,15 +23,15 @@ export class EpisodeDescriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((p: ParamMap) => {
-      console.log('episodeNum: ', p.get('episodeNum'));
-      this.episodeNum = parseInt(p.get('episodeNum'));
+      console.log('locNum: ', p.get('locNum'));
+      this.locNum = parseInt(p.get('locNum'));
 
       this.httpGetService
-        .getOneEpisodeData(this.episodeNum)
+        .getOneLocationData(this.locNum)
         .subscribe(
           (data) => (
-            (this.epDescription = data),
-            console.log('first id: ', this.epDescription.id)
+            (this.locDescription = data),
+            console.log('first id: ', this.locDescription.id)
           )
         );
     });

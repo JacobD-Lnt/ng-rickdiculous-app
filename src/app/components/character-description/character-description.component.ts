@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HttpGetService } from 'src/app/http-get.service';
 import { CharacterData } from 'src/app/character-data';
+import { LocationLinkComponent } from '../location-link/location-link.component';
 
 @Component({
   selector: 'app-character-description',
