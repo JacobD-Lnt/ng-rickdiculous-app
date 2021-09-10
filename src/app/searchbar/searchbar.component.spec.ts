@@ -5,7 +5,7 @@ import { SearchbarComponent } from './searchbar.component';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { EpisodesPage } from 'src/app/episodes-page';
-import { EpisodeLinkComponent } from '../episode-link/episode-link.component';
+import { EpisodeLinkComponent } from '../components/episode-link/episode-link.component';
 import { EpisodeData } from 'src/app/episode-data';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 

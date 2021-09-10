@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class CharacterLinkComponent implements OnInit {
   @Input() charUrl: string = '';
   charData: CharacterData = new CharacterData();
+  imageUrl: string = '';
 
   constructor(
     private httpGetService: HttpGetService,
@@ -26,6 +27,10 @@ export class CharacterLinkComponent implements OnInit {
 
     this.httpGetService
       .getOneCharacterData(temp)
-      .subscribe((data) => (this.charData = data));
+      .subscribe(
+        (data) => (
+          (this.charData = data), (this.imageUrl = this.charData.image)
+        )
+      );
   }
 }

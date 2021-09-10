@@ -14,7 +14,7 @@ import { CharacterDescriptionComponent } from './components/character-descriptio
 import { LocationsComponent } from './components/locations/locations.component';
 import { LocationLinkComponent } from './components/location-link/location-link.component';
 import { LocationDescriptionComponent } from './components/location-description/location-description.component';
-import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharacterSearchbarComponent } from './components/character-searchbar/character-searchbar.component';
 import { EpisodeSearchbarComponent } from './components/episode-searchbar/episode-searchbar.component';
