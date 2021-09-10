@@ -1,0 +1,49 @@
+
+<form (ngSubmit)="handleSubmit()" [formGroup]="charSearchForm">
+  <label>Name:</label>
+  <input
+    id="searchterm1"
+    class="form-control"
+    type="search"
+    formControlName="searchName"
+    required
+  />
+  <br />
+  <label>Status:</label>
+  <input
+  id="searchterm2"
+  class="form-control"
+  type="search"
+  formControlName="searchStatus"
+  />
+  <br />
+  <label>Species:</label>
+  <input
+  id="searchterm3"
+  class="form-control"
+  type="search"
+  formControlName="searchSpecies"
+  />
+  <br />
+  <label>Type:</label>
+  <input
+  id="searchterm4"
+  class="form-control"
+  type="search"
+  formControlName="searchType"
+  />
+  <br />
+  <label>Gender:</label>
+  <input
+  id="searchterm5"
+  class="form-control"
+  type="search"
+  formControlName="searchGender"
+  />
+  <br />
+  <input
+    id="submit"
+    type="submit"
+    value="Go!"
+  />
+</form>

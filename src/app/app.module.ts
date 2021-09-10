@@ -16,6 +16,9 @@ import { LocationLinkComponent } from './components/location-link/location-link.
 import { LocationDescriptionComponent } from './components/location-description/location-description.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CharacterSearchbarComponent } from './components/character-searchbar/character-searchbar.component';
+import { EpisodeSearchbarComponent } from './components/episode-searchbar/episode-searchbar.component';
+import { LocationSearchbarComponent } from './components/location-searchbar/location-searchbar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LocationLinkComponent,
     LocationDescriptionComponent,
     SearchbarComponent,
+    CharacterSearchbarComponent,
+    EpisodeSearchbarComponent,
+    LocationSearchbarComponent,
   ],
   imports: [
     BrowserModule,

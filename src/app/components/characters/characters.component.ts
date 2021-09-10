@@ -31,9 +31,7 @@ export class CharactersComponent implements OnInit {
         .getAllCharacterData(this.pageNum)
         .subscribe(
           (data) => (
-            (this.characters = data),
-            console.log('Show characters on page: ', this.pageNum),
-            console.log('first id: ', this.characters.results[0].id)
+            (this.characters = data)
           )
         );
     });

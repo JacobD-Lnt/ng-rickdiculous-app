@@ -8,6 +8,7 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { CharacterDescriptionComponent } from './components/character-description/character-description.component';
 import { LocationsComponent } from './components/locations/locations.component';
 import { LocationDescriptionComponent } from './components/location-description/location-description.component';
+import { CharacterSearchbarComponent } from './components/character-searchbar/character-searchbar.component';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +29,7 @@ const routes = [
     path: 'locationDescription/:locNum',
     component: LocationDescriptionComponent,
   },
+  {path: 'charSearch', component: CharacterSearchbarComponent}
 ];
 
 @NgModule({
