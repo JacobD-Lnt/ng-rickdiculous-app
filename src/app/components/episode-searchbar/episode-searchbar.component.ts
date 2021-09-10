@@ -46,13 +46,12 @@ export class EpisodeSearchbarComponent implements OnInit {
         episode: '',
       };
 
-      // console.log('Name:', p.get('name'));
       if (p.get('name') != '') {
         searchTerms['name'] = p.get('name');
       }
 
       if (p.get('episode') != '') {
-        searchTerms['status'] = p.get('status');
+        searchTerms['episode'] = p.get('episode');
       }
 
 

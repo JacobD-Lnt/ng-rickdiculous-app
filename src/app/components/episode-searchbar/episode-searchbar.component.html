@@ -36,7 +36,7 @@
 <div *ngIf="epPage.info != null">
   <a
     [routerLink]="[
-      '/charSearch',
+      '/epSearch',
       1,
       searchData['name'],
       searchData['episode']
@@ -52,10 +52,10 @@
 
   <br />
 
-  <app-character-link
+  <app-episode-link
     *ngFor="let result of epPage.results"
     [epUrl]="result.url"
-  ></app-character-link>
+  ></app-episode-link>
 
   <br />
 
@@ -64,7 +64,7 @@
   <a
     *ngIf="pageNum > 1"
     [routerLink]="[
-      '/charSearch',
+      '/epSearch',
       pageNum - 1,
       searchData['name'],
       searchData['episode']
@@ -75,7 +75,7 @@
   <a
     *ngIf="pageNum < epPage.info.pages"
     [routerLink]="[
-      '/charSearch',
+      '/epSearch',
       pageNum + 1,
       searchData['name'],
       searchData['episode']
