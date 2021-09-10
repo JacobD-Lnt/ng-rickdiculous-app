@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpGetService } from 'src/app/http-get.service';
 import { CharacterData } from 'src/app/character-data';
 import { LocationLinkComponent } from '../location-link/location-link.component';
+import { FavoritesService } from 'src/app/favorites.service';
 
 @Component({
   selector: 'app-character-description',
@@ -19,7 +20,8 @@ export class CharacterDescriptionComponent implements OnInit {
     private httpGetService: HttpGetService,
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private favoritesService: FavoritesService
   ) {}
 
   ngOnInit(): void {
@@ -37,5 +39,9 @@ export class CharacterDescriptionComponent implements OnInit {
           )
         );
     });
+  }
+
+  addFav() {
+    this.favoritesService.updateChar(this.charDescription.url);
   }
 }

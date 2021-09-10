@@ -6,6 +6,8 @@
   <a [routerLink]="['/characters', 1]">Characters</a>
 
   <a [routerLink]="['/locations', 1]">Locations</a>
+
+  <a routerLink="/favorites">Favorites</a>
 </nav>
 
 <!-- <p>location-description works!</p> -->
@@ -17,11 +19,7 @@
 <div>Dimension: {{ locDescription.dimension }}</div>
 <div>Date Created: {{ locDescription.created }}</div>
 
-<!-- <div>Episode Id:{{ epDescription.id }}</div>
-<div>Episode Name: {{ epDescription.name }}</div>
-<div>Episode Air Date: {{ epDescription.air_date }}</div>
-<div>Season and Episode Number: {{ epDescription.episode }}</div>
-<div>Date Created: {{ epDescription.created }}</div> -->
+<button (click)="addFav()">❤️</button>
 
 <div>
   Residents:

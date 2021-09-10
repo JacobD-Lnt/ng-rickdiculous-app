@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharacterSearchbarComponent } from './components/character-searchbar/character-searchbar.component';
 import { EpisodeSearchbarComponent } from './components/episode-searchbar/episode-searchbar.component';
 import { LocationSearchbarComponent } from './components/location-searchbar/location-searchbar.component';
+import { FavoritesPageComponent } from './components/favorites-page/favorites-page.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { LocationSearchbarComponent } from './components/location-searchbar/loca
     CharacterSearchbarComponent,
     EpisodeSearchbarComponent,
     LocationSearchbarComponent,
+    FavoritesPageComponent,
   ],
   imports: [
     BrowserModule,

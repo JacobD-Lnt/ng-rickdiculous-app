@@ -1,0 +1,46 @@
+<!-- <p>favorites-page works!</p> -->
+
+<nav>
+  <a routerLink="">Home</a>
+
+  <a [routerLink]="['/episodes', 1]">Episodes</a>
+
+  <a [routerLink]="['/characters', 1]">Characters</a>
+
+  <a [routerLink]="['/locations', 1]">Locations</a>
+
+  <a routerLink="/favorites">Favorites</a>
+</nav>
+
+<br />
+
+Favorite Episodes:
+
+<br />
+<div>
+  <app-episode-link
+    *ngFor="let epUrl of favEps"
+    [epUrl]="epUrl"
+  ></app-episode-link>
+  <br />
+</div>
+<br />
+Favorite Characters:
+<br />
+<div>
+  <app-character-link
+    *ngFor="let charUrl of favChars"
+    [charUrl]="charUrl"
+  ></app-character-link>
+  <br />
+</div>
+<br />
+Favorite Locations:
+<br />
+<div>
+  <app-location-link
+    *ngFor="let locUrl of favLocs"
+    [locUrl]="locUrl"
+  ></app-location-link>
+  <br />
+</div>

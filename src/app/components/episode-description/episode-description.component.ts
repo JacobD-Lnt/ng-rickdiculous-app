@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpGetService } from 'src/app/http-get.service';
 import { EpisodeData } from 'src/app/episode-data';
 import { CharacterLinkComponent } from '../character-link/character-link.component';
+import { FavoritesService } from 'src/app/favorites.service';
 
 @Component({
   selector: 'app-episode-description',
@@ -18,7 +19,8 @@ export class EpisodeDescriptionComponent implements OnInit {
     private httpGetService: HttpGetService,
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private favoritesService: FavoritesService
   ) {}
 
   ngOnInit(): void {
@@ -35,5 +37,9 @@ export class EpisodeDescriptionComponent implements OnInit {
           )
         );
     });
+  }
+
+  addFav() {
+    this.favoritesService.updateEp(this.epDescription.url);
   }
 }

@@ -11,6 +11,7 @@ import { LocationDescriptionComponent } from './components/location-description/
 import { CharacterSearchbarComponent } from './components/character-searchbar/character-searchbar.component';
 import { EpisodeSearchbarComponent } from './components/episode-searchbar/episode-searchbar.component';
 import { LocationSearchbarComponent } from './components/location-searchbar/location-searchbar.component';
+import { FavoritesPageComponent } from './components/favorites-page/favorites-page.component';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -35,9 +36,17 @@ const routes = [
     path: 'charSearch/:page/:name/:status/:species/:type/:gender',
     component: CharacterSearchbarComponent,
   },
-  {path: 'epSearch/:page/:name/:episode', component: EpisodeSearchbarComponent},
-  {path: 'locSearch/:page/:name/:type/:dimension', component: LocationSearchbarComponent},
 
+  {
+    path: 'epSearch/:page/:name/:episode',
+    component: EpisodeSearchbarComponent,
+  },
+  {
+    path: 'locSearch/:page/:name/:type/:dimension',
+    component: LocationSearchbarComponent,
+  },
+
+  { path: 'favorites', component: FavoritesPageComponent },
 ];
 
 @NgModule({
