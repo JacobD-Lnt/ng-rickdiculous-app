@@ -22,14 +22,10 @@ export class CharacterLinkComponent implements OnInit {
 
   ngOnInit(): void {
     let temp: string = this.charUrl.split('/')[5];
-    console.log('temp: ', temp);
+    //console.log('temp: ', temp);
 
     this.httpGetService
       .getOneCharacterData(temp)
-      .subscribe(
-        (data) => (
-          (this.charData = data), console.log('first id: ', this.charData.id)
-        )
-      );
+      .subscribe((data) => (this.charData = data));
   }
 }

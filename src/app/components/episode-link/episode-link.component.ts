@@ -23,14 +23,10 @@ export class EpisodeLinkComponent implements OnInit {
 
   ngOnInit(): void {
     let temp: string = this.epUrl.split('/')[5];
-    console.log('temp: ', temp);
+    // console.log('temp: ', temp);
 
     this.httpGetService
       .getOneEpisodeData(parseInt(temp))
-      .subscribe(
-        (data) => (
-          (this.epData = data), console.log('first id: ', this.epData.id)
-        )
-      );
+      .subscribe((data) => (this.epData = data));
   }
 }

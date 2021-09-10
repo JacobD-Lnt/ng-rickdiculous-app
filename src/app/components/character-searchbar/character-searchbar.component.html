@@ -1,3 +1,14 @@
+<nav>
+  <a routerLink="">Home</a>
+
+  <a [routerLink]="['/episodes', 1]">Episodes</a>
+
+  <a [routerLink]="['/characters', 1]">Characters</a>
+
+  <a [routerLink]="['/locations', 1]">Locations</a>
+</nav>
+
+<br />
 
 <form (ngSubmit)="handleSubmit()" [formGroup]="charSearchForm">
   <label>Name:</label>
@@ -11,39 +22,98 @@
   <br />
   <label>Status:</label>
   <input
-  id="searchterm2"
-  class="form-control"
-  type="search"
-  formControlName="searchStatus"
+    id="searchterm2"
+    class="form-control"
+    type="search"
+    formControlName="searchStatus"
   />
   <br />
   <label>Species:</label>
   <input
-  id="searchterm3"
-  class="form-control"
-  type="search"
-  formControlName="searchSpecies"
+    id="searchterm3"
+    class="form-control"
+    type="search"
+    formControlName="searchSpecies"
   />
   <br />
   <label>Type:</label>
   <input
-  id="searchterm4"
-  class="form-control"
-  type="search"
-  formControlName="searchType"
+    id="searchterm4"
+    class="form-control"
+    type="search"
+    formControlName="searchType"
   />
   <br />
   <label>Gender:</label>
   <input
-  id="searchterm5"
-  class="form-control"
-  type="search"
-  formControlName="searchGender"
+    id="searchterm5"
+    class="form-control"
+    type="search"
+    formControlName="searchGender"
   />
   <br />
-  <input
-    id="submit"
-    type="submit"
-    value="Go!"
-  />
+  <input id="submit" type="submit" value="Submit" />
 </form>
+
+<br />
+
+<div *ngIf="charPage.info != null">
+  <a
+    [routerLink]="[
+      '/charSearch',
+      1,
+      searchData['name'],
+      searchData['status'],
+      searchData['species'],
+      searchData['type'],
+      searchData['gender']
+    ]"
+    >Update Results</a
+  >
+</div>
+
+<br />
+
+<div *ngIf="charPage.info != null">
+  Results:
+
+  <br />
+
+  <app-character-link
+    *ngFor="let result of charPage.results"
+    [charUrl]="result.url"
+  ></app-character-link>
+
+  <br />
+
+  Page: {{ pageNum }} out of {{ charPage.info.pages }}
+  <br />
+  <a
+    *ngIf="pageNum > 1"
+    [routerLink]="[
+      '/charSearch',
+      pageNum - 1,
+      searchData['name'],
+      searchData['status'],
+      searchData['species'],
+      searchData['type'],
+      searchData['gender']
+    ]"
+    >Prev Page</a
+  >
+  <br />
+  <a
+    *ngIf="pageNum < charPage.info.pages"
+    [routerLink]="[
+      '/charSearch',
+      pageNum + 1,
+      searchData['name'],
+      searchData['status'],
+      searchData['species'],
+      searchData['type'],
+      searchData['gender']
+    ]"
+  >
+    Next Page
+  </a>
+</div>

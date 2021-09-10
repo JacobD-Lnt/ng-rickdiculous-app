@@ -29,7 +29,10 @@ const routes = [
     path: 'locationDescription/:locNum',
     component: LocationDescriptionComponent,
   },
-  {path: 'charSearch', component: CharacterSearchbarComponent}
+  {
+    path: 'charSearch/:page/:name/:status/:species/:type/:gender',
+    component: CharacterSearchbarComponent,
+  },
 ];
 
 @NgModule({

@@ -29,14 +29,7 @@ export class EpisodesComponent implements OnInit {
 
       this.httpGetService
         .getAllEpisodeData(this.pageNum)
-        .subscribe(
-          (data) => (
-            (this.episodes = data),
-            console.log('Show episodes on page: ', this.pageNum),
-            console.log('first id: ', this.episodes.results[0].id)
-          )
-        );
+        .subscribe((data) => (this.episodes = data));
     });
-
   }
 }

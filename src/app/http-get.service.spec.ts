@@ -470,7 +470,7 @@ describe('HttpGetService', () => {
       ],
     };
 
-    service.getSearchResponseForCharacter(searchQuery).subscribe((data) => {
+    service.getSearchResponseForCharacter(1, searchQuery).subscribe((data) => {
       expect(data.results).toEqual(page.results);
     });
   });
@@ -666,7 +666,7 @@ describe('HttpGetService', () => {
       ],
     };
 
-    service.getSearchResponseForCharacter(searchQuery).subscribe((data) => {
+    service.getSearchResponseForCharacter(1, searchQuery).subscribe((data) => {
       expect(data.results).toEqual(page.results);
     });
   });

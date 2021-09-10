@@ -28,13 +28,7 @@ export class LocationsComponent implements OnInit {
 
       this.httpGetService
         .getAllLocationData(this.pageNum)
-        .subscribe(
-          (data) => (
-            (this.locations = data),
-            console.log('Show locations on page: ', this.pageNum),
-            console.log('first id: ', this.locations.results[0].id)
-          )
-        );
+        .subscribe((data) => (this.locations = data));
     });
   }
 }

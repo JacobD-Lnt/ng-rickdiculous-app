@@ -22,14 +22,10 @@ export class LocationLinkComponent implements OnInit {
 
   ngOnInit(): void {
     let temp: string = this.locUrl.split('/')[5];
-    console.log('temp: ', temp);
+    // console.log('temp: ', temp);
 
     this.httpGetService
       .getOneLocationData(parseInt(temp))
-      .subscribe(
-        (data) => (
-          (this.locData = data), console.log('first id: ', this.locData.id)
-        )
-      );
+      .subscribe((data) => (this.locData = data));
   }
 }

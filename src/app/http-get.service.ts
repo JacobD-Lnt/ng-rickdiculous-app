@@ -29,7 +29,7 @@ export class HttpGetService {
 
   getOneCharacterData(id: string) {
     let charUrl = this.mainUrl + '/character/' + id;
-    console.log('character link: ', charUrl);
+    //console.log('character link: ', charUrl);
     return this.http.get<CharacterData>(charUrl);
   }
 
@@ -48,16 +48,19 @@ export class HttpGetService {
     return this.http.get<LocationData>(locUrl);
   }
 
-  getSearchResponseForCharacter(keywords: object): Observable<CharactersPage> {
+  getSearchResponseForCharacter(
+    page: number,
+    keywords: object
+  ): Observable<CharactersPage> {
     let searchUrl = this.mainUrl + '/character/?';
     let searchIndex = 0;
 
-    if (keywords['name'] != null) {
+    if (keywords['name'] != '') {
       searchUrl += 'name=' + keywords['name'];
       searchIndex++;
     }
 
-    if (keywords['status'] != null) {
+    if (keywords['status'] != '') {
       if (searchIndex > 0) {
         searchUrl += '&';
       }
@@ -65,6 +68,35 @@ export class HttpGetService {
       searchUrl += 'status=' + keywords['status'];
       searchIndex++;
     }
+
+    if (keywords['species'] != '') {
+      if (searchIndex > 0) {
+        searchUrl += '&';
+      }
+
+      searchUrl += 'species=' + keywords['species'];
+      searchIndex++;
+    }
+
+    if (keywords['type'] != '') {
+      if (searchIndex > 0) {
+        searchUrl += '&';
+      }
+
+      searchUrl += 'type=' + keywords['type'];
+      searchIndex++;
+    }
+
+    if (keywords['gender'] != '') {
+      if (searchIndex > 0) {
+        searchUrl += '&';
+      }
+
+      searchUrl += 'gender=' + keywords['gender'];
+      searchIndex++;
+    }
+
+    searchUrl += '&page=' + page;
 
     return this.http.get<CharactersPage>(searchUrl);
   }
